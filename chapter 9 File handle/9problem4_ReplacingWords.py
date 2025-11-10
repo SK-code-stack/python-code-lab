@@ -9,4 +9,4 @@ with open("problem4_txt.txt", "r") as file:
 
 contentNew = content.lower().replace("donkey", "####")
 with open("problem4_txt.txt", "w") as file:
-    file.write(contentNew)
+    file.write(contentNew.capitalize())
