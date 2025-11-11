@@ -1,0 +1,80 @@
+Beginner (Basics + Logic + File Handling)
+
+----Word Counter – Write a program that counts how many times each word appears in a given text file.
+
+----Student Marks Tracker – Take input of 5 students (name + marks), store in a file, and display the student with the highest marks.
+
+----Palindrome Checker – Check if a given string or number is a palindrome.
+
+----Temperature Converter – Create a program to convert Celsius ↔ Fahrenheit using functions.
+
+Unique Words – Read a file and print only the unique words in sorted order.
+
+🟡 Intermediate (OOP + File + Logic)
+
+Bank Account System (OOP) –
+Create a class BankAccount with methods:
+
+deposit(amount)
+
+withdraw(amount)
+
+display_balance()
+
+Store and update all transactions in a text file.
+
+Library Management System –
+Build a class Book (title, author, available_copies) and Library to:
+
+Add books
+
+Borrow and return books
+
+Save and load the data from a file
+
+Employee Management System –
+
+Create an Employee class with attributes like name, ID, salary.
+
+A method to calculate bonuses based on salary.
+
+Save employee data to a JSON file and load it again.
+
+Simple Quiz App –
+
+Store questions and answers in a text or JSON file.
+
+Use a class Quiz to load questions, take user input, and calculate the score.
+
+🔵 Advanced / Interview-Focused
+
+Shape Area Calculator (Polymorphism) –
+Create base class Shape and derived classes Circle, Rectangle, Triangle.
+Each should have a method area() that returns the calculated area.
+
+Student Result System (Encapsulation + File Handling) –
+
+Private attributes: __name, __marks
+
+Method to determine grade (A, B, C, etc.)
+
+Store the results in a CSV file.
+
+Inventory Management (Inheritance + File I/O) –
+
+Base class: Item
+
+Subclasses: Electronics, Clothing, Grocery
+
+Each type has additional attributes
+
+Save and retrieve inventory from a file
+
+Car Rental System (OOP + Exception Handling) –
+
+Classes: Car, Customer, RentalSystem
+
+Handle errors like renting unavailable cars, invalid inputs, etc.
+
+Student Report Analyzer (File Parsing) –
+Read a CSV file of student names and marks, calculate average marks, and display top 3 performers.
