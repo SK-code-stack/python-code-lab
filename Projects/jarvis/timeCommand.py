@@ -1,0 +1,1 @@
+time = ["tell me time", "time", "what time is right now", "tell me the time"]
