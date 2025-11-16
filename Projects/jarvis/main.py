@@ -2,16 +2,44 @@ import webbrowser
 import speech_recognition as sr
 import pyttsx3
 import musicLibrary
-import time
 import timeCommand
+from gtts import gTTS
+import pygame
+import os
+from dotenv import load_dotenv
+import google.generativeai as genai
+
+
+# loads .env file
+load_dotenv()
+API = os.getenv("API")
 
 r = sr.Recognizer()
 engine = pyttsx3.init()
 
 
+# def speak_old(text):
+#     engine.say(text)
+#     engine.runAndWait()
+
+
 def speak(text):
-    engine.say(text)
-    engine.runAndWait()
+    # Convert text to mp3
+    tts = gTTS(text)
+    tts.save("voice.mp3")
+
+    # Initialize pygame mixer
+    pygame.mixer.init()
+    pygame.mixer.music.load("voice.mp3")
+    pygame.mixer.music.play()
+
+def processAI(c):
+    genai.configure(api_key=API)
+
+    model = genai.GenerativeModel("gemini-2.0-flash")
+
+    AI_response = model.generate_content(f"give a short responce on this command --> {c}")
+    speak(AI_response.text)
 
 # processing command
 def processCommand(c):
@@ -30,6 +58,8 @@ def processCommand(c):
         webbrowser.open(link)
     elif timeCommand.time in c.lower():
         speak("are you asking time")
+    else:
+        processAI(command)
 
 if __name__ == "__main__":
     speak("Initializing Jarvis...")
@@ -50,8 +80,9 @@ if __name__ == "__main__":
                     speak("Yes sir, I am ready.")
                     activated = True
                 else:
-                    # Target response once
-                    speak("chaal bhonsdeyka")
+                    # Target response once -------------------------------------- 
+                    speak("chal nikal")
+                    # speak("chaal bhonsdeyka")
             else:
                 # Already activated, process any command
                 processCommand(command)
