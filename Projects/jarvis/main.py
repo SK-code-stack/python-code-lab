@@ -81,8 +81,8 @@ if __name__ == "__main__":
                     activated = True
                 else:
                     # Target response once -------------------------------------- 
-                    speak("chal nikal")
-                    # speak("chaal bhonsdeyka")
+                    # speak("chal nikal")
+                    speak("chaal bhonsdeyka")
             else:
                 # Already activated, process any command
                 processCommand(command)
