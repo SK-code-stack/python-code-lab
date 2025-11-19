@@ -8,7 +8,7 @@ Beginner (Basics + Logic + File Handling)
 
 ----Temperature Converter – Create a program to convert Celsius ↔ Fahrenheit using functions.
 
-Unique Words – Read a file and print only the unique words in sorted order.
+----Unique Words – Read a file and print only the unique words in sorted order.
 
 🟡 Intermediate (OOP + File + Logic)
 
