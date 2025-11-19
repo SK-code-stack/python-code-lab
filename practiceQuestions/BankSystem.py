@@ -1,15 +1,22 @@
 # bank system with deposit , withdrawl and balance display function and save it in text file
 
-class Bank:
-    def __init__(self):
+# dictionary to store users (unique id : data)
+users = [
+    {"id": 123, "pass": 123123, "name": "salman", "balance": 100000},
+    {"id": 124, "pass": 123123, "name": "ali", "balance": 20000},
+]
 
-        pass
+
+class Bank:
+    def __init__(self, user_id, user_pass):
+        self.user_id = user_id
+        self.user_pass = user_pass
 
     def register_user(self):
-        user_id = int(input("Enter your user id : "))
-        user_pass = int(input("Enter your password"))
-        # ---------------------------------------------------------yaha sa krna hai yaha password validate krana hai
-        print("hlo")
+
+        user = next((u for u in users if u["id"] == self.user_id and u["pass"] == self.user_pass), None)
+        if user:
+            print(f"welcome{user["name"]}")
 
     def register_new_user(self):
         print("hlo")
@@ -29,13 +36,7 @@ class Bank:
 
 
 
-b = Bank()
 
-# dictionary to store users (unique id : data)
-users = {
-    123 : {"pass":123123,"name":"salman", "balance":100000},
-    124 : {"pass":123123,"name":"ali", "balance":20000},
-}
 
 print("Bank Management System")
 
@@ -52,8 +53,15 @@ while True:
 
         if (choice1 < 1 or choice1 > 4):
             print("Invalid choice please select from the given menu")
+
         elif (choice1 == 1):
+            user_id = int(input("Enter your user id : "))
+            user_pass = int(input("Enter your password : "))
+            b = Bank(user_id, user_pass) # ---------------------------------here its not good approch
+
             b.register_user()
+
+
         elif(choice1 == 2):
             b.register_new_user()
         elif(choice1 == 3):
