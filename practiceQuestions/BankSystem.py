@@ -3,7 +3,7 @@ datalist =[]
 with open("bank.txt") as file:
     data = file.readlines()
     for u in data:
-        parts = u.split("-")
+        parts = u.strip().split("-")
         datalist.append(
             {"id":parts[0], "name":parts[1], "pass":parts[2], "balance":parts[3]}
         )
@@ -133,8 +133,8 @@ class Bank:
     
     def deposit(self):
         ammount = int(input("Enter the amount : "))
-        # oldBalance = self.current_user["balance"]
-        # self.current_user["balance"] = oldBalance + ammount
+        oldBalance = self.current_user["balance"]
+        self.current_user["balance"] = int(oldBalance) + ammount
         with open("bank.txt","w") as file:
             for u in self.users:
                 file.write(f"{u['id']}-{u['name']}-{u['pass']}-{u['balance']}\n")
