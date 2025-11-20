@@ -128,17 +128,30 @@ class Bank:
         
     
     def withdrawl(self):
-        pass
+        ammount = int(input("Enter the amount to withdrawal : "))
+        if ammount <= 0:
+            print ("Enter a valid amount")
+        else:
+            oldBalance = int(self.current_user["balance"])
+            self.current_user["balance"] = int(oldBalance) - ammount
+            with open("bank.txt","w") as file:
+                for u in self.users:
+                    file.write(f"{u['id']}-{u['name']}-{u['pass']}-{u['balance']}\n")
+            print("Recive your cash")
+            
 
     
     def deposit(self):
         ammount = int(input("Enter the amount : "))
-        oldBalance = self.current_user["balance"]
-        self.current_user["balance"] = int(oldBalance) + ammount
-        with open("bank.txt","w") as file:
-            for u in self.users:
-                file.write(f"{u['id']}-{u['name']}-{u['pass']}-{u['balance']}\n")
-        print("Your ammount is successfully added")
+        if ammount <= 0:
+            print ("Enter a valid amount")
+        else:
+            oldBalance = int(self.current_user["balance"])
+            self.current_user["balance"] = oldBalance + ammount
+            with open("bank.txt","w") as file:
+                for u in self.users:
+                    file.write(f"{u['id']}-{u['name']}-{u['pass']}-{u['balance']}\n")
+            print("Your ammount is successfully added")
         
 
 
