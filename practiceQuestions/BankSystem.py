@@ -7,7 +7,6 @@ with open("bank.txt") as file:
         datalist.append(
             {"id":parts[0], "name":parts[1], "pass":parts[2], "balance":parts[3]}
         )
-    print(datalist)
 
 
 class Bank:
@@ -50,7 +49,9 @@ class Bank:
                     self.register_new_user()
 
                 elif(choice1 == 3):
-                    self.delete_user()
+                    user_id = int(input("Enter your user id : "))
+                    user_pass = int(input("Enter your password : "))
+                    self.delete_user(user_id, user_pass)
 
                 elif(choice1 == 4):
                     break
@@ -115,9 +116,16 @@ class Bank:
 
 
 
-    def delete_user(self):
+    def delete_user(self, user_id, user_pass):
+        print(self.users)
+        # finding the user that we want to delete
+        user = next((u for u in self.users if u["id"] == str(user_id) and u["pass"] == str(user_pass)), None)
+        self.users.remove(user) # removing user 
+        # now rewriting the file and saving all other users 
+        with open("bank.txt","w") as file:
+            for u in self.users:
+                file.write(f"{u['id']}-{u['name']}-{u['pass']}-{u['balance']}\n")
         
-        pass
 
     def deposit(self):
         pass
