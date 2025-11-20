@@ -126,21 +126,29 @@ class Bank:
             for u in self.users:
                 file.write(f"{u['id']}-{u['name']}-{u['pass']}-{u['balance']}\n")
         
-
-    def deposit(self):
-        pass
-
+    
     def withdrawl(self):
         pass
 
+    
     def deposit(self):
-        pass
+        ammount = int(input("Enter the amount : "))
+        # oldBalance = self.current_user["balance"]
+        # self.current_user["balance"] = oldBalance + ammount
+        with open("bank.txt","w") as file:
+            for u in self.users:
+                file.write(f"{u['id']}-{u['name']}-{u['pass']}-{u['balance']}\n")
+        print("Your ammount is successfully added")
+        
+
+
+
 
     def display_balance(self):
         balance = self.current_user["balance"]
         name = self.current_user["name"]
         print(f"{name.title()} your balance is {balance} Rs")
-        pass
+        
 
 
 
