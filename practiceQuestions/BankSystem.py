@@ -1,17 +1,23 @@
 # bank system with deposit , withdrawl and balance display function and save it in text file
-
-
+datalist =[]
+with open("bank.txt") as file:
+    data = file.readlines()
+    for u in data:
+        parts = u.split("-")
+        datalist.append(
+            {"id":parts[0], "name":parts[1], "pass":parts[2], "balance":parts[3]}
+        )
+    print(datalist)
 
 
 class Bank:
     def __init__(self):
-        self.users = [
-            # {"id": 123, "pass": 123123, "name": "salman", "balance": 100000},
-            # {"id": 124, "pass": 123123, "name": "ali", "balance": 20000},
-        ]
+        self.users = datalist
+            
         self.current_user = None
         if self.users == []:
             self.last_id = 0
+
         else:
             self.last_id = max(user["id"] for user in self.users)
 
@@ -58,7 +64,7 @@ class Bank:
 
     def login(self, user_id, user_pass):
  
-        user = next((u for u in self.users if u["id"] == user_id and u["pass"] == user_pass), None)
+        user = next((u for u in self.users if u["id"] == str(user_id) and u["pass"] == str(user_pass)), None)
         self.current_user = user
         if user:
             print("--------------------------------------------")
@@ -92,17 +98,25 @@ class Bank:
         name = input("Enter your full name : ")
         user_pass = int(input("Enter password: "))
         confirm_pass = int(input("Confirm your password: "))
+        balance = 0
+        self.last_id = id
         if user_pass == confirm_pass:
             # adding this info to the users list
             self.users.append({"id": id, "pass": user_pass, "name": name.title(), "balance": 0})
             print(f"{name.title()} your account is created and your login id is {id} please note it carefully.")
+
+            with open("bank.txt", "a") as file:
+                file.write(f"{id}-{name}-{user_pass}-{balance}-\n")
+
         else:
             print("Password and confirm password are not same")
 
 
 
 
+
     def delete_user(self):
+        
         pass
 
     def deposit(self):
