@@ -1,36 +1,29 @@
 Beginner (Basics + Logic + File Handling)
 
-----Word Counter – Write a program that counts how many times each word appears in a given text file.
+🟡----Word Counter – Write a program that counts how many times each word appears in a given text file.
 
-----Student Marks Tracker – Take input of 5 students (name + marks), store in a file, and display the student with the highest marks.
+🟡----Student Marks Tracker – Take input of 5 students (name + marks), store in a file, and display the student with the highest marks.
 
-----Palindrome Checker – Check if a given string or number is a palindrome.
+🟡----Palindrome Checker – Check if a given string or number is a palindrome.
 
-----Temperature Converter – Create a program to convert Celsius ↔ Fahrenheit using functions.
+🟡----Temperature Converter – Create a program to convert Celsius ↔ Fahrenheit using functions.
 
-----Unique Words – Read a file and print only the unique words in sorted order.
+🟡----Unique Words – Read a file and print only the unique words in sorted order.
 
 🟡 Intermediate (OOP + File + Logic)
 
-Bank Account System (OOP) –
-Create a class BankAccount with methods:
-
-deposit(amount)
-
-withdraw(amount)
-
-display_balance()
-
-Store and update all transactions in a text file.
+🟡----Bank Account System (OOP) –
+    Create a class BankAccount with methods:
+    deposit(amount)
+    withdraw(amount)
+    display_balance()
+    Store and update all transactions in a text file.
 
 Library Management System –
-Build a class Book (title, author, available_copies) and Library to:
-
-Add books
-
-Borrow and return books
-
-Save and load the data from a file
+    Build a class Book (title, author, available_copies) and Library to:
+    Add books
+    Borrow and return books
+    Save and load the data from a file
 
 Employee Management System –
 
