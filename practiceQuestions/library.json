@@ -1,0 +1,22 @@
+[
+    {
+        "author": "salman",
+        "title": "science",
+        "copies": 2
+    },
+    {
+        "author": "ali",
+        "title": "islam",
+        "copies": 5
+    },
+    {
+        "author": "asad",
+        "title": "urdu",
+        "copies": 0
+    },
+    {
+        "author": "amjad",
+        "title": "arabic",
+        "cpoies": 22
+    }
+]
