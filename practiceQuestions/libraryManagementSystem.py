@@ -5,11 +5,11 @@ import json
 
 class book:
     def __init__(self):
-        self.books = [
-            {"author":"salman", "title":"science",  "copies":2},
-            {"author":"ali", "title":"islam",  "copies":5},
-            {"author":"asad", "title":"urdu",  "copies":0},
-        ]
+        try:
+            with open("library.json", "r") as file:
+                self.books = json.load(file)
+        except FileNotFoundError:
+            self.books = []
         pass
 
     def choice(self):
@@ -37,29 +37,38 @@ class book:
             elif(choice == 4):
                 break
 
-        pass
 
     def addBook(self):
         print("Enter Book Detailes")
         bookName = input("Enter title of the book : ")
         authorName = input("Enter author name of the book : ")
-        noCopies = int(input("Enter number of copies of the book : "))
+        noCopies = int(input("Enter number of copies of the book : ")) # number of copies 
         book = next((u for u in self.books if u["author"] == str(authorName) and u["title"] == str(bookName)), None)
 
         if book:
-            book["copies"] = noCopies
+            book["copies"] =  book["copies"]  + noCopies
         else:
-            self.books.append({"author":authorName, "title":bookName,  "cpoies":noCopies},)
-
+            self.books.append({"author":authorName, "title":bookName,  "copies":noCopies},)
         with open("library.json", "w") as file:
             json.dump(self.books, file, indent=4)
 
         print(self.books)
-        pass
 
     def borrowBook(self):
-        print("boook is borrowed")
-        pass
+        print("Enter details of the book that you want to borrow")
+        bookName = input("Enter name of the book : ")
+        authorName = input("Enter name of the author : ")
+        book = next((b for b in self.books if b["title"] == str(bookName) and b["author"] == str(authorName)), None)
+        if not book:
+            print("NO book is availble with this name and author")
+        elif book:
+            book["copies"] == str(0)
+            book["copies"] -= 1
+            print("book alloted successfully")
+            with open("library.json", "w") as file:
+                json.dump(self.books, file, indent=4)
+
+            print(self.books)
 
     def returnBook(self):
         print("boook is returned")
