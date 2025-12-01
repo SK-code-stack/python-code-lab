@@ -3,7 +3,7 @@
 Welcome to **Python Code Lab** — a collection of Python problems, exercises, and small projects that I’ve solved while practicing core programming concepts.  
 This repository serves as my personal coding playground for improving problem-solving skills, learning new Python techniques, and experimenting with ideas.
 
----
+--
 🚀 Contents
 - 🧩 **Practice Problems:** Logic-based challenges and algorithmic exercises  
 - 📂 **Mini Projects:** Hands-on scripts for file handling, automation, etc.  
